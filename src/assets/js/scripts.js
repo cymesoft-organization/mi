@@ -3,7 +3,7 @@ function initMimatrimony() {
     "use strict";
     //   loader ------------------
     $(".loader-wrap").fadeOut(300, function () {
-        $("#main").animate({
+        $("#miMain").animate({
             opacity: "1"
         }, 600);
     });
@@ -948,7 +948,7 @@ function initMimatrimony() {
     });
     // Styles ------------------
     if ($("footer.main-footer").hasClass("fixed-footer")) {
-        $('<div class="height-emulator fl-wrap"></div>').appendTo("#main");
+        $('<div class="height-emulator fl-wrap"></div>').appendTo("#miMain");
     }
     function csselem() {
         $(".height-emulator").css({
