@@ -1,18 +1,55 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+
 
 
 import { AppComponent } from './app.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
+import { ApiService } from './api.service';
+import { AuthGuard } from './auth.guard';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule,
+    FlashMessagesModule.forRoot()
+
+
   ],
-  providers: [],
+  providers: [AuthGuard, ApiService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
