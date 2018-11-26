@@ -1857,7 +1857,7 @@ section.parallax-section .bg  , .list-single-hero .bg , .hero-parallax .bg{
 	float:left;
 	width:100%;
 	position:relative;
-	margin:10px 0 15px;
+	margin:0px 0 15px 15px;
 }
 .section-separator:before{
 	content:'';
@@ -2022,9 +2022,9 @@ section.color-bg .section-title .breadcrumbs a:before {
 	opacity:0.7;
 }
 section.parallax-section .section-title h4 , .flat-title-wrap h4  {
-	color:rgba(255,255,255,0.71);
-	font-size:12px;
-	font-weight:400;
+	color:rgba(255, 255, 255, 0.71);
+	font-size:17px;
+	font-weight:400;  text-transform: inherit;
 }
 .no-mar-bottom {
 	margin-bottom:0 !important;

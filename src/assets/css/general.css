@@ -75,7 +75,7 @@
 .topbar-right li i{padding-right:5px; color:#ffbc05; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out;}
 .topbar-right li i:hover{color:#ffffff !important;}
 #header.dark-fancy .menu-icon-right li i:hover{color:#ffffff;}
-
+.hero-section.fullscreen {margin-bottom: -165px; top: -180px; position: relative; overflow:hidden;}
 #header + .fullscreen {margin-bottom: -165px; top: -180px; position: relative; overflow:hidden;}
 #header.dark + .fullscreen {margin-bottom: -140px; top: -140px;}
 #header.fancy + .fullscreen {margin-bottom: 0; top: 0;}
@@ -326,7 +326,7 @@ Page section margin padding
 /*************************
    BG - Images
 *************************/
-.inner-intro.bg{position: relative;height: 350px;}
+.inner-intro.bg{position: relative;height:270px;}
 .inner-intro .section-title p{color: #ffffff;}
 .inner-intro .section-title  h1{
   font-size:52px;
