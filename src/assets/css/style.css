@@ -4634,8 +4634,8 @@ article.post-article .list-single-main-item {
 	margin-bottom:30px;
 }
 .box-widget-item-header {
-	padding: 0 0 20px;
-    margin: 0 0 25px;
+	padding:0x;
+    margin: 0px;
 	float:left;
 	width:100%;
     border-bottom: 1px solid #eee;
@@ -4646,7 +4646,7 @@ article.post-article .list-single-main-item {
 	content: "\f0d7";
 	position:absolute;
 	right:0;
-	top:2px;
+	top:12px;
     color: #ADC7DD;
 }
 .box-widget-item-header h3 {
@@ -8894,3 +8894,12 @@ section.hero-section  {
 	-webkit-animation: fade 20s infinite;
 }
 @-webkit-keyframes fade{from{bottom:-24px;opacity:0.5;visibility:visible}to{bottom:120%}}@keyframes fade{from{bottom:-24px;opacity:0.5;visibility:visible}to{bottom:120%}}
+.whyRegister .box-widget-item-header:before{display: none;}
+.whyRegister .box-widget-content{padding: 10px;}
+.whyRegister .box-widget-item-header h3{text-align: center;}
+.whyRegister ul{clear: both; padding-top: 20px;}
+.whyRegister li img{ width: 50px;opacity: 0.6;}
+.whyRegister li{
+	padding:0 10px;text-align: center;
+}
+.whyRegister li p{color: #666;line-height: normal; margin: 10px 0; }

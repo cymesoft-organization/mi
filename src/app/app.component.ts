@@ -21,7 +21,7 @@ export class AppComponent {
     let Hclass = '';
     //alert(x[1]);
     if(x[1] != ''){
-      Hclass = "defualt dark";
+      Hclass = "dark";
     }else{
       Hclass = "defualt ";
     }
