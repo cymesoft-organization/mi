@@ -9,8 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-
+import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule  } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -42,6 +41,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
