@@ -1,15 +1,5 @@
-<!-- <mat-toolbar color="primary">Home</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Form controls</a>
-      <a mat-list-item href="#">Navigation</a>
-      <a mat-list-item href="#">Layout</a>
-      <a mat-list-item href="#">Buttons and Indicators</a>
-      <a mat-list-item href="#">Popups & Modals</a>
-      <a mat-list-item href="#">Data table</a>
-    </mat-nav-list> -->
-
 <!--=================================banner -->
-<section class="inner-intro bg bg-fixed bg-overlay-black-60" style="background-image:url(assets/images/bg/14.jpg);">
+<!-- <section class="inner-intro bg bg-fixed bg-overlay-black-60" style="background-image:url(assets/images/bg/14.jpg);">
   <div class="container">
     <div class="flat-title-wrap">
       <h2><span>Account details</span></h2>
@@ -18,7 +8,7 @@
       </h4>
     </div>
   </div>
-</section>
+</section> -->
 
 <!--================================= banner -->
 <!-- wrapper -->
@@ -31,13 +21,73 @@
           <!--listing -->
           <div class="col-md-10">
             <div class="list-single-main-item fl-wrap no-mar-bottom ">
-              <!-- <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Favorite food" value="Sushi">
+              <div class="list-single-main-item-title fl-wrap">
+                <h3>Account Details </h3>
+                <!-- <span> Welcome! Let's start your partner search with this Sign up.  </span> -->
+              </div>
+              <form>
+                <div class="col-md-6">
+                  <mat-form-field class="demo-full-width">
+                    <input matInput type="email" placeholder="Email">
                   </mat-form-field>
-                
-                  <mat-form-field class="example-full-width">
-                    <textarea matInput placeholder="Leave a comment"></textarea>
-                  </mat-form-field> -->
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="demo-full-width">
+                    <input matInput type="password" placeholder="Password">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-select placeholder="Create profile for">
+                      <mat-option>-- None --</mat-option>
+                      <mat-option value="1">Self</mat-option>
+                      <mat-option value="2">Son</mat-option>
+                      <mat-option value="3">Daughter</mat-option>
+                      <mat-option value="3">Brother</mat-option>
+                      <mat-option value="3">Sister</mat-option>
+                      <mat-optgroup label="Others">
+                        <mat-option value="4">Relative/Friend</mat-option>
+                        <mat-option value="5">Client-Marriage Bureau</mat-option>
+                      </mat-optgroup>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <!-- <div class="col-md-6">
+                      <mat-radio-group>
+                          <label>Gender</label>
+                        <mat-radio-button value="1">Male</mat-radio-button>
+                        <mat-radio-button value="2">Female</mat-radio-button>
+                      </mat-radio-group>
+                    </div> -->
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Full Name">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="demo-full-width">
+                    <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="demo-full-width">
+                    <input matInput type="email" placeholder="Email">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="demo-full-width">
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input type="tel" matInput placeholder="Mobile No">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12 text-right">
+                  <button mat-raised-button color="accent">Register Me</button>
+                  <p>By clicking on 'Register me', you confirm
+                    that you accept the Terms of Use and Privacy Policy</p>
+                </div>
+              </form>
             </div>
           </div>
           <div class="col-md-2">
@@ -58,13 +108,13 @@
                     </li>
                     <li>
                       <img src="assets/images/icons/005-team.svg" alt="" />
-                      <p>Secure & 
-                          Family Friendly</p>
+                      <p>Secure &
+                        Family Friendly</p>
                     </li>
                     <li>
                       <img src="assets/images/icons/008-protected-profile.svg" alt="" />
-                      <p>Strict 
-                          Privacy Control</p>
+                      <p>Strict
+                        Privacy Control</p>
                     </li>
                   </ul>
                 </div>
@@ -79,90 +129,3 @@
   <!-- content end-->
 </div>
 <!--wrapper end -->
-
-<mat-toolbar color="accent">    
-  <span>Manav Pandya - C#Corner</span>    
-  <span class="demo-toolbar"></span>    
-  <button mat-button href="asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>    
-  
-</mat-toolbar>    
-  
-<mat-card>    
-  <!-- Title of an Card -->    
-  <mat-card-title>    
-      Angular Material Component With Angular 5    
-  </mat-card-title>    
-  
-  <mat-card-content>    
-      <form>    
-          <table>    
-              <tr>    
-                  <td>    
-                      <mat-form-field class="demo-full-width">    
-                          <input matInput placeholder="First Name">    
-                      </mat-form-field>    
-                  </td>    
-                  <td>    
-                      <mat-form-field class="demo-full-width">    
-                          <input matInput placeholder="Last Name">    
-                      </mat-form-field>    
-                  </td>    
-              </tr>    
-              <tr>    
-                  <td colspan="2">    
-                      <mat-form-field class="demo-full-width">    
-                          <textarea matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
-                      </mat-form-field>    
-                  </td>    
-              </tr>    
-              <tr>    
-                  <td colspan="2">    
-                      <mat-form-field class="demo-full-width">    
-                          <input matInput [matDatepicker]="picker" placeholder="Date of birth">    
-                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>    
-                          <mat-datepicker touchUi="true" #picker></mat-datepicker>    
-                      </mat-form-field>    
-                  </td>    
-              </tr>    
-              <tr>    
-                  <td>    
-                      <span>Gender</span><br><br>    
-                      <mat-radio-group>    
-                          <mat-radio-button value="1">Male</mat-radio-button>    
-                          <mat-radio-button value="2">Female</mat-radio-button>    
-                      </mat-radio-group>    
-                  </td>    
-                  <td><br>    
-                      <mat-form-field>    
-                          <mat-select placeholder="Select Blog" [(value)]="selected">    
-                              <mat-option>-- Select Any --</mat-option>    
-                              <mat-option value="1">C#Corner</mat-option>    
-                              <mat-option value="2">C#Corner</mat-option>    
-                              <mat-option value="3">C#Corner</mat-option>    
-                          </mat-select>    
-                      </mat-form-field>    
-                  </td>    
-              </tr>    
-              <tr>    
-                  <td colspan="2">    
-                      <mat-form-field class="demo-full-width">    
-                          <input matInput placeholder="Email">    
-                      </mat-form-field>    
-                  </td>    
-              </tr>    
-              <tr>    
-                  <td colspan="2">    
-  
-                  </td>    
-              </tr>    
-              <tr>    
-                  <td colspan="2" class="content-center">    
-                      <button mat-raised-button color="accent">Submit</button>    
-                      <button mat-raised-button color="accent">Clear</button>    
-                  </td>    
-              </tr>    
-          </table>    
-      </form>    
-  </mat-card-content>    
-</mat-card>   
-  

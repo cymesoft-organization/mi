@@ -8903,3 +8903,6 @@ section.hero-section  {
 	padding:0 10px;text-align: center;
 }
 .whyRegister li p{color: #666;line-height: normal; margin: 10px 0; }
+.text-right{text-align: right;}
+.list-single-main-item-title{text-align: left;}
+.list-single-main-item-title span{font-size: 12px; padding: 10px 0;}
