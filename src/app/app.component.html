@@ -1,7 +1,7 @@
 <!-- Main -->
 <div id="main">
 		<!--================================= header -->
-		<header id="header" class="defualt dark">
+		<header id="header" [ngClass]="headerClass()"> 
 			<div class="topbar">
 				<div class="container">
 					<div class="row">
@@ -62,7 +62,7 @@
 									<!-- menu logo -->
 									<ul class="menu-logo">
 										<li>
-											<a href="index.html">
+											<a routerLink="/">
 												<img src="assets/images/logo.png" alt="logo" />
 											</a>
 										</li>
@@ -70,7 +70,7 @@
 									<!-- menu links -->
 									<ul class="menu-links">
 										<!-- active class -->
-										<li class="active"> <a href="index.html">
+										<li class="active"> <a routerLink="/">
                                  Home
                                  </a>
 										</li>

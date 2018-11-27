@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+
+import { RouterModule, Routes, NavigationEnd} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
