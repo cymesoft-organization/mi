@@ -7,9 +7,26 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, NavigationEnd} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule  } from '@angular/material';
+import {      
+  MatButtonModule,      
+  MatMenuModule,      
+  MatToolbarModule,      
+  MatIconModule,      
+  MatCardModule,      
+  MatFormFieldModule,      
+  MatInputModule,      
+  MatDatepickerModule,      
+  MatDatepicker,      
+  MatNativeDateModule,      
+  MatRadioModule,      
+  MatSelectModule,      
+  MatOptionModule,
+  MatSidenavModule,
+  MatListModule,
+  MatSlideToggleModule,ErrorStateMatcher,ShowOnDirtyErrorStateMatcher      
+} from '@angular/material';   
 
 
 import { AppComponent } from './app.component';
@@ -37,11 +54,20 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatButtonModule,
     MatCheckboxModule,
     LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule,
+    MatButtonModule,      
+    MatMenuModule,      
+    MatToolbarModule,      
+    MatIconModule,      
+    MatCardModule,      
+    BrowserAnimationsModule,      
+    MatFormFieldModule,      
+    MatInputModule,      
+    MatDatepickerModule,      
+    MatNativeDateModule,      
+    MatRadioModule,      
+    MatSelectModule,      
+    MatOptionModule,      
+    MatSlideToggleModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -51,6 +77,22 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
   ],
+  exports: [      
+    MatButtonModule,      
+    MatMenuModule,      
+    MatToolbarModule,      
+    MatIconModule,      
+    MatCardModule,      
+    BrowserAnimationsModule,      
+    MatFormFieldModule,      
+    MatInputModule,      
+    MatDatepickerModule,      
+    MatNativeDateModule,      
+    MatRadioModule,      
+    MatSelectModule,      
+    MatOptionModule,      
+    MatSlideToggleModule      
+  ],      
   providers: [AuthGuard, ApiService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
