@@ -25,7 +25,7 @@
                 <h3>Account Details </h3>
                 <!-- <span> Welcome! Let's start your partner search with this Sign up.  </span> -->
               </div>
-              <form>
+             <!-- <form>
                 <div class="col-md-6">
                   <mat-form-field class="demo-full-width">
                     <input matInput type="email" placeholder="Email">
@@ -52,13 +52,13 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-                <!-- <div class="col-md-6">
+               <div class="col-md-6">
                       <mat-radio-group>
                           <label>Gender</label>
                         <mat-radio-button value="1">Male</mat-radio-button>
                         <mat-radio-button value="2">Female</mat-radio-button>
                       </mat-radio-group>
-                    </div> -->
+                    </div> 
                 <div class="col-md-6">
                   <mat-form-field>
                     <input matInput type="text" placeholder="Full Name">
@@ -87,7 +87,78 @@
                   <p>By clicking on 'Register me', you confirm
                     that you accept the Terms of Use and Privacy Policy</p>
                 </div>
-              </form>
+              </form>-->
+
+              <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+                {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+              </button>
+              <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Fill out your name</ng-template>
+                    <mat-form-field>
+                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                    <ng-template matStepLabel>Email</ng-template>
+                    <mat-form-field class="demo-full-width">
+                      <input matInput type="email" placeholder="Email" formControlName="email" required>
+                    </mat-form-field>
+
+                    <ng-template matStepLabel>Password</ng-template>
+                    <mat-form-field class="demo-full-width">
+                      <input matInput type="password" placeholder="Password">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-select placeholder="Create profile for">
+                        <mat-option>-- None --</mat-option>
+                        <mat-option value="1">Self</mat-option>
+                        <mat-option value="2">Son</mat-option>
+                        <mat-option value="3">Daughter</mat-option>
+                        <mat-option value="3">Brother</mat-option>
+                        <mat-option value="3">Sister</mat-option>
+                        <mat-optgroup label="Others">
+                          <mat-option value="4">Relative/Friend</mat-option>
+                          <mat-option value="5">Client-Marriage Bureau</mat-option>
+                        </mat-optgroup>
+                      </mat-select>
+                    </mat-form-field>
+                    <ng-template matStepLabel>Gender</ng-template>
+                    <mat-radio-group>                      
+                      <mat-radio-button value="1">Male</mat-radio-button>
+                      <mat-radio-button value="2">Female</mat-radio-button>
+                  </mat-radio-group>
+
+                  <mat-form-field class="demo-full-width">
+                    <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                  </mat-form-field>
+                    <div>
+                      <button mat-raised-button color="accent" mat-button matStepperNext>Next</button>                      
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                      <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Done</ng-template>
+                  You are now done.
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper>
             </div>
           </div>
           <div class="col-md-2">

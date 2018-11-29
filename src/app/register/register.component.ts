@@ -14,17 +14,27 @@ export class RegisterComponent implements OnInit {
   
   loginForm: FormGroup; 
   private user:User;
-  constructor(private fb:FormBuilder,  private router: Router, private _flashMessagesService: FlashMessagesService) { }
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  constructor(private _formBuilder:FormBuilder,  private router: Router, private _flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
-    this.loginForm  = this.fb.group({
+    this.loginForm  = this._formBuilder.group({
       email: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       phone: ['',[Validators.required]],
       first_name: ['',[Validators.required]],
-      last_name: ['', [Validators.required]],
-          
+      last_name: ['', [Validators.required]],          
           
   })
+
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required],
+      email: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
     
   }
 
