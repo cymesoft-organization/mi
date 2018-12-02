@@ -94,45 +94,54 @@
               </button>
               <mat-horizontal-stepper [linear]="isLinear" #stepper>
                 <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup" (submit)= "firstSbumit()"> 
                     <ng-template matStepLabel>Fill out your name</ng-template>
-                    <mat-form-field>
-                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                    </mat-form-field>
-                    <ng-template matStepLabel>Email</ng-template>
+                    <div class="col-md-6">
                     <mat-form-field class="demo-full-width">
-                      <input matInput type="email" placeholder="Email" formControlName="email" required>
+                        <input matInput type="email" placeholder="Email" formControlName="email" required>
                     </mat-form-field>
-
-                    <ng-template matStepLabel>Password</ng-template>
+                    </div>
+                    <div class="col-md-6">
                     <mat-form-field class="demo-full-width">
-                      <input matInput type="password" placeholder="Password">
+                        <input matInput type="password" placeholder="Password" formControlName="password" required>
                     </mat-form-field>
+                    </div>
+                    <div class="col-md-6">                      
                     <mat-form-field>
-                      <mat-select placeholder="Create profile for">
-                        <mat-option>-- None --</mat-option>
-                        <mat-option value="1">Self</mat-option>
-                        <mat-option value="2">Son</mat-option>
-                        <mat-option value="3">Daughter</mat-option>
-                        <mat-option value="3">Brother</mat-option>
-                        <mat-option value="3">Sister</mat-option>
-                        <mat-optgroup label="Others">
-                          <mat-option value="4">Relative/Friend</mat-option>
-                          <mat-option value="5">Client-Marriage Bureau</mat-option>
-                        </mat-optgroup>
-                      </mat-select>
-                    </mat-form-field>
-                    <ng-template matStepLabel>Gender</ng-template>
-                    <mat-radio-group>                      
-                      <mat-radio-button value="1">Male</mat-radio-button>
-                      <mat-radio-button value="2">Female</mat-radio-button>
-                  </mat-radio-group>
+                        <mat-select placeholder="Create profile for" formControlName="create_profile_for"  (change)="profilefor($event.value)">
+                          <mat-option>-- None --</mat-option>
+                          <mat-option  [value]="data.mst_pfor_id" *ngFor="let data of profileDrop">{{data.mst_pfor_detail}}</mat-option>
 
+                          <mat-optgroup label="Others">
+                            <mat-option [value]="otherData.mst_pfor_id" *ngFor="let otherData of otherDrop[0]" >{{otherData.mst_pfor_detail}}</mat-option>
+                            
+                          </mat-optgroup>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-radio-group formControlname="gender" [hidden]="isGenderEnable">                             
+                        <mat-radio-button [value]="gen" *ngFor="let gen of genders" >{{gen}}</mat-radio-button>
+                        
+                      </mat-radio-group>
+                      
+                      </div>
+                      
+                      <div class="col-md-6">
+                    <mat-form-field>
+                      <input matInput placeholder="Last name, First name" formControlName="name" required>
+                    </mat-form-field> 
+                    </div>
+                    <div class="col-md-6">
                   <mat-form-field class="demo-full-width">
-                    <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+                    <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Date of birth">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi="true" #picker></mat-datepicker>
                   </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                  <mat-form-field>
+                      <input matInput placeholder="Mobile No." formControlName="mobile" required>
+                    </mat-form-field> 
+                  </div>
                     <div>
                       <button mat-raised-button color="accent" mat-button matStepperNext>Next</button>                      
                     </div>

@@ -5,7 +5,8 @@ export class User {
     confirmpassword: string;
     phone: string;
     first_Name: string;
-    last_Name: string;    
+    last_Name: string;
+        
  
     constructor(values: Object = {}) {
       //Constructor initialization
