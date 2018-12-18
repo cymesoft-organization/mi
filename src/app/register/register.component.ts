@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common'
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from './User';
@@ -12,7 +13,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class RegisterComponent implements OnInit {
   
-  loginForm: FormGroup; 
+  
   private user:User;
   isLinear = true;
   firstFormGroup: FormGroup;
@@ -21,29 +22,24 @@ export class RegisterComponent implements OnInit {
   profileDrop: any = [];
   otherDrop: any = [];
   isGenderEnable: boolean = true;
-  genders: string[] = ['male', 'female'];
+  
 
-  constructor(private _formBuilder:FormBuilder,  private ApiService: ApiService , private router: Router, private _flashMessagesService: FlashMessagesService) { }
+  constructor(private _formBuilder:FormBuilder,  private ApiService: ApiService , private router: Router, private _flashMessagesService: FlashMessagesService, public datepipe: DatePipe) { }
 
   ngOnInit() {
 
     this.getProfilefor();
-    this.loginForm  = this._formBuilder.group({
-      email: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      phone: ['',[Validators.required]],
-      first_name: ['',[Validators.required]],
-      last_name: ['', [Validators.required]],          
-          
-  })
+    
 
     this.firstFormGroup = this._formBuilder.group({
-      name: ['', Validators.required],
-      email: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      password: ['',Validators.required],
-      dob: ['', Validators.required],
-      create_profile_for: ['', Validators.required],
-      mobile: ['', Validators.required],
-      gender:  ['', Validators.required],
+      uFName: ['', Validators.required],
+      uEmail: ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      uPsaaword: ['',Validators.required],
+      uDateBirth: ['', Validators.required],
+      uGender:  ['male', Validators.required],
+      uProfileFor: ['', Validators.required],
+      uMobilNo: ['', Validators.required]
+      
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
@@ -52,12 +48,13 @@ export class RegisterComponent implements OnInit {
     
     
   }
-
-  get email() { return this.loginForm.get('email'); } 
-  get password() { return this.loginForm.get('password');} 
-  get phone() { return this.loginForm.get('phone'); }
-  get first_name() { return this.loginForm.get('first_name'); }
-  get last_name() { return this.loginForm.get('last_name'); }
+  get uFName() { return this.firstFormGroup.get('uFName'); } 
+  get uEmail() { return this.firstFormGroup.get('uEmail'); } 
+  get uPsaaword() { return this.firstFormGroup.get('uPsaaword');} 
+  get uMobilNo() { return this.firstFormGroup.get('uMobilNo'); }
+  get uGender() { return this.firstFormGroup.get('uGender'); }
+  get uProfileFor() { return this.firstFormGroup.get('uProfileFor'); }
+  get uDateBirth() { return this.firstFormGroup.get('uDateBirth'); }
 
  profilefor(e){
    console.log(e);
@@ -66,22 +63,25 @@ export class RegisterComponent implements OnInit {
     this.isGenderEnable= false;
    }else{
     this.isGenderEnable= true;
-    if(e==2 || e == 4){
-      this.firstFormGroup['gender'] = 1;
+    if(e==2 || e == 4){      
+      this.firstFormGroup.controls['uGender'].setValue('male');      
     }else{
-      this.firstFormGroup['gender'] = 2;
+      this.firstFormGroup.controls['uGender'].setValue('female'); 
     }
    
    }
    
  }
  firstSbumit(){
-   
+    
    if(this.firstFormGroup.invalid){
      return;
    }
-   console.log(this.firstFormGroup.value);
-   this.ApiService.register(this.user)
+   
+   let latest_date =this.datepipe.transform(this.firstFormGroup.value['uDateBirth'], 'yyyy-MM-dd');
+   console.log(latest_date);
+   this.firstFormGroup.controls['uDateBirth'].setValue(latest_date); 
+   this.ApiService.register(this.firstFormGroup.value)
       .subscribe(
       data => {
         console.log(data);

@@ -13,7 +13,7 @@ export class ApiService {
     return this.http.post(this.appURL + 'login', JSON.stringify({ customer: customer }));
   }
   register(user){
-    return this.http.post(this.appURL + 'signUp', JSON.stringify({ user: user }));
+    return this.http.post(this.appURL + 'UserReg', JSON.stringify({ user: user }));
   }
   // Get Login user data from Localstorage
   getLocalSession(sessionData) {

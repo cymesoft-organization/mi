@@ -6,7 +6,7 @@ export class User {
     phone: string;
     first_Name: string;
     last_Name: string;
-        
+    gender: string;    
  
     constructor(values: Object = {}) {
       //Constructor initialization

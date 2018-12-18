@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DatePipe } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -158,7 +159,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatTooltipModule
     
   ],      
-  providers: [AuthGuard, ApiService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [AuthGuard, ApiService, DatePipe, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
