@@ -38,16 +38,33 @@
             </div>
           </div>
           <div class="main-search-input-wrap searchMain">
-            <div class="main-search-input fl-wrap">
-                              <div class="row">
+             <form #userSearch="ngForm" >
+             <div class="main-search-input fl-wrap">
+             <div class="row">
               <div class="col-md-2">
-                <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
+                <div class="c ol-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
                   <label>I am Looking for</label>
                   <div class="listsearch-input-item">
-                    <select data-placeholder="City" class="chosen-select no-search-select">
-                      <option>Men</option>
-                      <option>Women</option>
-                    </select>
+                    <!--select placeholder="Looking For"  name = "uLooking" [(ngModel)]="aaa" >
+                      <option [ngValue]="0" >Men</option>
+                      <option [ngValue]="1" >Women</option>
+                    </select-->
+
+                    <!--input name="name" [ngModel]="userName" required #name="ngModel"-->
+
+                    <!--select multiple name="uLooking" [ngModel]="looking" >
+                           <option *ngFor="let data of religionDrop" [ngValue]="data">
+                             {{ data.mst_religion_detail }}
+                           </option>
+                        </select-->
+                        <select [(ngModel)] = "emp.newnew">
+                          <option *ngFor="let mo of emp" [ngValue]="mo">
+                            {{mo.Name}}
+                          </option>
+                          {{emp.Name}}
+                          
+                        </select>
+                       Select Value : {{newnew}}
                   </div>
                 </div>
               </div>
@@ -56,7 +73,7 @@
                                               <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
                                                   <label>Aged</label>
                                                   <div class="listsearch-input-item">
-                                                      <select data-placeholder="City" class="chosen-select no-search-select">
+                                                      <select placeholder="Age From" class="chosen-select no-search-select">
                                                               <option value="18" label="18">18</option>
                                                               <option value="19" label="19">19</option>
                                                               <option value="20" label="20">20</option>
@@ -82,7 +99,8 @@
                                                   <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
                                                       <label>To</label>
                                                       <div class="listsearch-input-item">
-                                                          <select data-placeholder="City" class="chosen-select no-search-select">
+                                                        <!--data-placeholder="City"-->
+                                                          <select placeholder="Age To" class="chosen-select no-search-select">
                                                                   <option value="18" label="18">18</option>
                                                                   <option value="19" label="19">19</option>
                                                                   <option value="20" label="20">20</option>
@@ -110,7 +128,13 @@
                 <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
                   <label>Of Religion</label>
                   <div class="listsearch-input-item">
-                    <select data-placeholder="City" class="chosen-select no-search-select">
+                      <mat-form-field>
+                          <mat-select placeholder="Religion">
+                            <mat-option>-- None --</mat-option>
+                            <mat-option  [value]="data.mst_religion_id" *ngFor="let data of religionDrop">{{data.mst_religion_detail}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>                    
+                    <!--select data-placeholder="City" class="chosen-select no-search-select" (change)="religion($event.value)">
                       <option>All Cities</option>
                       <option>New York</option>
                       <option>London</option>
@@ -120,7 +144,7 @@
                       <option>Dubai</option>
                       <option>Rome</option>
                       <option>Beijing</option>
-                    </select>
+                    </select-->
                   </div>
                 </div>
               </div>
@@ -128,7 +152,13 @@
                 <div class="col-list-search-input-item in-loc-dec fl-wrap">
                   <label>And Mother Tongue</label>
                   <div class="listsearch-input-item">
-                    <select data-placeholder="City" class="chosen-select no-search-select">
+                      <mat-form-field>
+                          <mat-select placeholder="Mother Tongue" >
+                            <mat-option>-- None --</mat-option>
+                            <mat-option  [value]="data.mst_mtongue_id" *ngFor="let data of motherTongue">{{data.mst_mtongue_detail}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>                    
+                    <!--select data-placeholder="City" class="chosen-select no-search-select"  (change)="mothertongue($event.value)">
                       <option>All Cities</option>
                       <option>New York</option>
                       <option>London</option>
@@ -138,13 +168,18 @@
                       <option>Dubai</option>
                       <option>Rome</option>
                       <option>Beijing</option>
-                    </select>
+                    </select-->
                   </div>
                 </div>
-                              </div>
-                              <div class="col-md-2"><a class="button btn-lg btn-theme animated right-icn"><span>Let's Begin <i class="glyph-icon flaticon-hearts" aria-hidden="true"></i></span></a></div>
+                    </div>
+                        <div class="col-md-2">                          
+                            <button type="submit" class="button btn-lg btn-theme animated right-icn"  (click)="searchSbumit(emp)"><span>Let's Begin                                 
+                              <i class="glyph-icon flaticon-hearts" aria-hidden="true"></i>
+                            </span></button>
                           </div>
-            </div>
+                    </div>
+                </div>
+              </form>
           </div>
         </div>
       </div>

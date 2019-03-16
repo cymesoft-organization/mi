@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://fullstackdeveloper.co.in/mi/api/',  
+  apiUrl: 'http://fullstackdeveloper.co.in/mi/api/',
+  //apiUrl: 'http://localhost:8000/api/',  
   siteUrl: 'http://fullstackdeveloper.co.in/misite',
 };

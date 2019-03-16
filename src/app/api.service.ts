@@ -37,4 +37,12 @@ export class ApiService {
     return this.http.get(this.appURL + 'ProfileForView');
   }
 
+  getReligion(){
+    return this.http.get(this.appURL + 'ReligionView');
+  }
+
+  getMothertongue(){
+    return this.http.get(this.appURL + 'MotherTongueView');
+  }
+
 }

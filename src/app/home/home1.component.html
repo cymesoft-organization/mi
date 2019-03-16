@@ -1,0 +1,14 @@
+<div>
+    <form  (ngSubmit)="checkValue()">
+<select name="dep" [(ngModel)]="depar">
+    <option *ngFor="let hr of emp" [value]="hr.Id">{{hr.Name}}</option>
+</select>
+
+
+<button type="submit" class="button btn-lg btn-theme animated right-icn"><span>Let's Begin                                 
+    <i class="glyph-icon flaticon-hearts" aria-hidden="true"></i>
+  </span></button>
+</form>
+
+Display Value : {{depar}}
+</div>
