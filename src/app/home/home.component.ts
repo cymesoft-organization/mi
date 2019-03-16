@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-//import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService} from './../api.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { NgForm } from '@angular/forms';
+import { User } from '../user';
 
 
 @Component({
@@ -13,29 +13,27 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
+
   religionDrop: any = [];
   motherTongue: any = [];
   otherDrop: any = [];
   isGenderEnable: boolean = true;
   emp : any = [];
   newnew:Number;
+  user = new User();
+
+  lookingArr: any = [{'name' : 'Men'}, {'name' : 'Women'}];
+  ageArr: any = ['18', '19', '20', '21', '22', '23', '24', '25'];
   constructor(private ApiService: ApiService , private router: Router, private _flashMessagesService: FlashMessagesService, public datepipe: DatePipe) { }
 
   ngOnInit() {
     this.getReligion();
     this.getMotherTongue();
 
-    this.emp = [
-                {Id:1,Name:'aaa'},
-                {Id:2,Name:'bbb'},
-                {Id:3,Name:'ccc'}
-              ]
-
 
   }
 
-  //get.uLooking(){}
+
 
   getReligion(){
   this.ApiService.getReligion()
@@ -44,10 +42,10 @@ export class HomeComponent implements OnInit {
     //console.log(data);
     if (data['status'] === 1) {
       delete data['status'];
-      delete data['message'];  
-          
+      delete data['message'];
+
        this.religionDrop = data['data'];
- 
+
     } else {
       this._flashMessagesService.show(data['message'], { cssClass: 'alert-danger' });
     }
@@ -64,11 +62,11 @@ export class HomeComponent implements OnInit {
       //console.log(data);
       if (data['status'] === 1) {
         delete data['status'];
-        delete data['message'];  
-            
+        delete data['message'];
+
         console.log(data['data']);
         this.motherTongue = data['data'];
-   
+
       } else {
         this._flashMessagesService.show(data['message'], { cssClass: 'alert-danger' });
       }
@@ -79,21 +77,9 @@ export class HomeComponent implements OnInit {
     }
 
 
-   searchSbumit(emp)
-   {
+   searchSbumit(user: User): void{
     console.log("yes");
-    console.log(emp);
-    
-    //console.log(form.control['uLooking'].value);
+    console.log(user);
 
-    //console.log(this.firstFormGroup);
-    //console.log('ttt----'+this.firstFormGroup['uLooking'].value);
-    
-   }
-
-   checkValue(form: NgForm)
-   {
-     console.log("yes");
-     //console.log(this.['depar'].value);
-   }
+  }
 }

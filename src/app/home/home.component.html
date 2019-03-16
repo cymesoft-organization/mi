@@ -38,142 +38,81 @@
             </div>
           </div>
           <div class="main-search-input-wrap searchMain">
-             <form #userSearch="ngForm" >
+             <form #userSearch="ngForm"  (ngSubmit)="searchSbumit(user)">
              <div class="main-search-input fl-wrap">
              <div class="row">
               <div class="col-md-2">
-                <div class="c ol-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
-                  <label>I am Looking for</label>
+                <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
+                  <label>I am</label>
                   <div class="listsearch-input-item">
-                    <!--select placeholder="Looking For"  name = "uLooking" [(ngModel)]="aaa" >
-                      <option [ngValue]="0" >Men</option>
-                      <option [ngValue]="1" >Women</option>
-                    </select-->
-
-                    <!--input name="name" [ngModel]="userName" required #name="ngModel"-->
-
-                    <!--select multiple name="uLooking" [ngModel]="looking" >
-                           <option *ngFor="let data of religionDrop" [ngValue]="data">
-                             {{ data.mst_religion_detail }}
-                           </option>
-                        </select-->
-                        <select [(ngModel)] = "emp.newnew">
-                          <option *ngFor="let mo of emp" [ngValue]="mo">
-                            {{mo.Name}}
-                          </option>
-                          {{emp.Name}}
-                          
-                        </select>
-                       Select Value : {{newnew}}
+                    <mat-form-field>
+                      <mat-select placeholder="Looking for"  [(ngModel)]="user.uLooking"  name ="uLooking">
+                        <mat-option>-- None --</mat-option>
+                        <mat-option   *ngFor="let looking of lookingArr" [value]="looking.name">{{looking.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                                       <div class="col-md-6">
                                               <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
-                                                  <label>Aged</label>
+                                                  <label>Age</label>
                                                   <div class="listsearch-input-item">
-                                                      <select placeholder="Age From" class="chosen-select no-search-select">
-                                                              <option value="18" label="18">18</option>
-                                                              <option value="19" label="19">19</option>
-                                                              <option value="20" label="20">20</option>
-                                                              <option value="21" label="21">21</option>
-                                                              <option value="22" label="22">22</option>
-                                                              <option value="23" label="23">23</option>
-                                                              <option value="24" label="24">24</option>
-                                                              <option value="25" label="25">25</option>
-                                                              <option value="26" label="26">26</option>
-                                                              <option value="27" label="27">27</option>
-                                                              <option value="28" label="28">28</option>
-                                                              <option value="29" label="29">29</option>
-                                                              <option value="30" label="30">30</option>
-                                                              <option value="31" label="31">31</option>
-                                                              <option value="32" label="32">32</option>
-                                                              <option value="33" label="33">33</option>
-                                                              <option value="34" label="34">34</option>
-                                                      </select>
+                                                      <mat-form-field>
+                                                        <mat-select placeholder="From"  [(ngModel)]="user.ageFrom"  name ="ageFrom">
+                                                          <mat-option>-- None --</mat-option>
+                                                          <mat-option   [value]="age"  *ngFor="let age of ageArr">{{age}}</mat-option>
+                                                        </mat-select>
+                                                      </mat-form-field>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="col-md-6">
                                                   <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
-                                                      <label>To</label>
+                                                      <label>Age</label>
                                                       <div class="listsearch-input-item">
-                                                        <!--data-placeholder="City"-->
-                                                          <select placeholder="Age To" class="chosen-select no-search-select">
-                                                                  <option value="18" label="18">18</option>
-                                                                  <option value="19" label="19">19</option>
-                                                                  <option value="20" label="20">20</option>
-                                                                  <option value="21" label="21">21</option>
-                                                                  <option value="22" label="22">22</option>
-                                                                  <option value="23" label="23">23</option>
-                                                                  <option value="24" label="24">24</option>
-                                                                  <option value="25" label="25">25</option>
-                                                                  <option value="26" label="26">26</option>
-                                                                  <option value="27" label="27">27</option>
-                                                                  <option value="28" label="28">28</option>
-                                                                  <option value="29" label="29">29</option>
-                                                                  <option value="30" label="30">30</option>
-                                                                  <option value="31" label="31">31</option>
-                                                                  <option value="32" label="32">32</option>
-                                                                  <option value="33" label="33">33</option>
-                                                                  <option value="34" label="34">34</option>
-                                                          </select>
+
+                                                          <mat-form-field>
+                                                            <mat-select placeholder="To" [(ngModel)]="user.ageTo"  name ="ageTo">
+                                                              <mat-option>-- None --</mat-option>
+                                                              <mat-option   [value]="age"  *ngFor="let age of ageArr">{{age}}</mat-option>
+                                                            </mat-select>
+                                                          </mat-form-field>
                                                       </div>
                                                   </div>
                                               </div>
               </div>
 
               <div class="col-md-2">
-                <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
-                  <label>Of Religion</label>
+                <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow" >
+                  <label>Of</label>
                   <div class="listsearch-input-item">
                       <mat-form-field>
-                          <mat-select placeholder="Religion">
+                          <mat-select placeholder="Religion" [(ngModel)]="user.religion"  name ="religion">
                             <mat-option>-- None --</mat-option>
                             <mat-option  [value]="data.mst_religion_id" *ngFor="let data of religionDrop">{{data.mst_religion_detail}}</mat-option>
                           </mat-select>
-                        </mat-form-field>                    
-                    <!--select data-placeholder="City" class="chosen-select no-search-select" (change)="religion($event.value)">
-                      <option>All Cities</option>
-                      <option>New York</option>
-                      <option>London</option>
-                      <option>Paris</option>
-                      <option>Kiev</option>
-                      <option>Moscow</option>
-                      <option>Dubai</option>
-                      <option>Rome</option>
-                      <option>Beijing</option>
-                    </select-->
+                        </mat-form-field>
+
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
-                <div class="col-list-search-input-item in-loc-dec fl-wrap">
-                  <label>And Mother Tongue</label>
+                <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
+                  <label>And </label>
                   <div class="listsearch-input-item">
                       <mat-form-field>
-                          <mat-select placeholder="Mother Tongue" >
+                          <mat-select placeholder="Mother Tongue"  [(ngModel)]="user.motherTongue"  name ="motherTongue">
                             <mat-option>-- None --</mat-option>
                             <mat-option  [value]="data.mst_mtongue_id" *ngFor="let data of motherTongue">{{data.mst_mtongue_detail}}</mat-option>
                           </mat-select>
-                        </mat-form-field>                    
-                    <!--select data-placeholder="City" class="chosen-select no-search-select"  (change)="mothertongue($event.value)">
-                      <option>All Cities</option>
-                      <option>New York</option>
-                      <option>London</option>
-                      <option>Paris</option>
-                      <option>Kiev</option>
-                      <option>Moscow</option>
-                      <option>Dubai</option>
-                      <option>Rome</option>
-                      <option>Beijing</option>
-                    </select-->
+                        </mat-form-field>
                   </div>
                 </div>
                     </div>
-                        <div class="col-md-2">                          
-                            <button type="submit" class="button btn-lg btn-theme animated right-icn"  (click)="searchSbumit(emp)"><span>Let's Begin                                 
+                        <div class="col-md-2">
+                            <button type="submit" class="button btn-lg btn-theme animated right-icn"  ><span>Let's Begin
                               <i class="glyph-icon flaticon-hearts" aria-hidden="true"></i>
                             </span></button>
                           </div>
@@ -183,7 +122,7 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
       <div class="bubble-bg"></div>
 
   </section>
