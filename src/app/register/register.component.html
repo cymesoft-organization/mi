@@ -23,7 +23,7 @@
             <div class="list-single-main-item fl-wrap no-mar-bottom ">
               <div class="list-single-main-item-title fl-wrap">
                 <h3>Account Details </h3>
-                <!-- <span> Welcome! Let's start your partner search with this Sign up.  </span> -->
+                <span> Welcome! Let's start your partner search with this Sign up.  </span> 
               </div>
              <!-- <form>
                 <div class="col-md-6">
@@ -95,7 +95,7 @@
               <mat-horizontal-stepper [linear]="isLinear" #stepper>
                 <mat-step [stepControl]="firstFormGroup">
                   <form [formGroup]="firstFormGroup" (submit)= "firstSbumit()"> 
-                    <ng-template matStepLabel>Fill out your name</ng-template>
+                    <ng-template matStepLabel>Account Details</ng-template>
                     <div class="col-md-6">
                     <mat-form-field class="demo-full-width">
                         <input matInput type="email" placeholder="Email" formControlName="uEmail" required>
@@ -149,7 +149,24 @@
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup">
                   <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <ng-template matStepLabel>Profile details</ng-template>
+                    <mat-form-field>
+                      <mat-select placeholder="Pokemon" [formControl]="pokemonControl">
+                        <mat-option>-- None --</mat-option>
+                        <mat-optgroup *ngFor="let group of motherTonguDropdown" [label]="group.name"
+                                      [disabled]="group.disabled">
+                          <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+                            {{pokemon.viewValue}}
+                          </mat-option>
+                        </mat-optgroup>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="demo-full-width">
+                        <input matInput type="text" placeholder="Mother tongue" formControlName="uEmail" required>
+                    </mat-form-field>
+                    
+                    
+                                                     
                     <mat-form-field>
                       <input matInput placeholder="Address" formControlName="secondCtrl" required>
                     </mat-form-field>
@@ -160,7 +177,15 @@
                   </form>
                 </mat-step>
                 <mat-step>
-                  <ng-template matStepLabel>Done</ng-template>
+                  <ng-template matStepLabel>Education & Profession</ng-template>
+                  You are now done.
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div>
+                </mat-step>                
+                <mat-step>
+                  <ng-template matStepLabel>Lifestyle & Family</ng-template>
                   You are now done.
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
