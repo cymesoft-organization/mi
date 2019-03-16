@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   profileDrop: any = [];
   otherDrop: any = [];
   isGenderEnable: boolean = true;
+  motherTonguDropdown: any = {};
   
 
   constructor(private _formBuilder:FormBuilder,  private ApiService: ApiService , private router: Router, private _flashMessagesService: FlashMessagesService, public datepipe: DatePipe) { }
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
     this.getProfilefor();
+    this.getMotherTongu();
     
 
     this.firstFormGroup = this._formBuilder.group({
@@ -99,6 +101,26 @@ export class RegisterComponent implements OnInit {
       error => {
         this._flashMessagesService.show('Error in the Data/Server', { cssClass: 'alert-danger' });
       });
+ }
+ getMotherTongu(){
+  this.ApiService.getMotherTongu()
+  .subscribe(
+  data => {
+    //console.log(data);
+    if (data['status'] === 1) {
+      delete data['status'];
+      delete data['message'];   
+      console.log(data['data']);           
+      this.motherTonguDropdown = data['data'];     
+                
+     }
+       
+     
+    
+  },
+  error => {
+    this._flashMessagesService.show('Error in the Data/Server', { cssClass: 'alert-danger' });
+  });
  }
  getProfilefor(){
   this.ApiService.getProfilefor()
