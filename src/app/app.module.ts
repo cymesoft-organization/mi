@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { LayoutModule } from '@angular/cdk/layout';
 import {
-  MatAutocompleteModule,  
+  MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,
@@ -41,12 +41,11 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatOptionModule,       
-  MatFormFieldModule,  
-   
-  MatDatepicker,      
-  ErrorStateMatcher,ShowOnDirtyErrorStateMatcher      
-} from '@angular/material';   
+  MatOptionModule,
+  MatFormFieldModule,
+  MatDatepicker,
+  ErrorStateMatcher,ShowOnDirtyErrorStateMatcher
+} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -59,6 +58,7 @@ import { HomeComponent } from './home/home.component';
 import { ApiService } from './api.service';
 import { AuthGuard } from './auth.guard';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -74,41 +75,41 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatButtonModule,
     MatCheckboxModule,
     LayoutModule,
-    MatButtonModule,      
-    MatMenuModule,      
-    MatToolbarModule,      
-    MatIconModule,      
-    MatCardModule,      
-    BrowserAnimationsModule,      
-    MatFormFieldModule,      
-    MatInputModule,      
-    MatDatepickerModule,      
-    MatNativeDateModule,      
-    MatRadioModule,      
-    MatSelectModule,      
-    MatOptionModule,      
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
     MatSlideToggleModule,
 
-    MatAutocompleteModule,  
-    MatButtonToggleModule,    
+    MatAutocompleteModule,
+    MatButtonToggleModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatStepperModule,    
+    MatStepperModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
-    MatGridListModule,   
+    MatGridListModule,
     MatListModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule,    
-    MatRippleModule,    
+    MatProgressSpinnerModule,
+    MatRippleModule,
     MatSidenavModule,
-    MatSliderModule,    
+    MatSliderModule,
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
-    MatTabsModule,    
+    MatTabsModule,
     MatTooltipModule,
 
     AppRoutingModule,
@@ -120,45 +121,45 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
   ],
-  exports: [      
-    MatButtonModule,      
-    MatMenuModule,      
-    MatToolbarModule,      
-    MatIconModule,      
-    MatCardModule,      
-    BrowserAnimationsModule,      
-    MatFormFieldModule,      
-    MatInputModule,      
-    MatDatepickerModule,      
-    MatNativeDateModule,      
-    MatRadioModule,      
-    MatSelectModule,      
-    MatOptionModule,      
+  exports: [
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
     MatSlideToggleModule,
-    
-    MatAutocompleteModule,  
-    MatButtonToggleModule,    
+
+    MatAutocompleteModule,
+    MatButtonToggleModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatStepperModule,    
+    MatStepperModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
-    MatGridListModule,   
+    MatGridListModule,
     MatListModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule,    
-    MatRippleModule,    
+    MatProgressSpinnerModule,
+    MatRippleModule,
     MatSidenavModule,
-    MatSliderModule,    
+    MatSliderModule,
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
-    MatTabsModule,    
+    MatTabsModule,
     MatTooltipModule
-    
-  ],      
+
+  ],
   providers: [AuthGuard, ApiService, DatePipe, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })

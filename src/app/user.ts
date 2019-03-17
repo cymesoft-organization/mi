@@ -3,8 +3,8 @@ export class User {
   uLooking: string;
   ageFrom: number;
   ageTo: number;
-  religion: any= [];
-  motherTongue: any = [];
+  religion: number;
+  motherTongue: number;
   firstName: string;
   lastName: string;
 }

@@ -24,7 +24,10 @@ export class HomeComponent implements OnInit {
 
   lookingArr: any = [{'name' : 'Men'}, {'name' : 'Women'}];
   ageArr: any = ['18', '19', '20', '21', '22', '23', '24', '25'];
-  constructor(private ApiService: ApiService , private router: Router, private _flashMessagesService: FlashMessagesService, public datepipe: DatePipe) { }
+  constructor(private ApiService: ApiService ,
+    private router: Router,
+    private _flashMessagesService: FlashMessagesService,
+    public datepipe: DatePipe) { }
 
   ngOnInit() {
     this.getReligion();
@@ -80,6 +83,12 @@ export class HomeComponent implements OnInit {
    searchSbumit(user: User): void{
     console.log("yes");
     console.log(user);
+    this.router.navigate([`/list`], { queryParams: {'uLooking'     : user.uLooking,
+                                                    'ageFrom'      : user.ageFrom,
+                                                    'ageTo'        : user.ageTo,
+                                                    'religion'     : user.religion,
+                                                    'motherTongue' : user.motherTongue}});
+
 
   }
 }
